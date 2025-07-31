@@ -25,8 +25,8 @@ variable "api_url" {
     default = "https://10.10.10.99:8006/api2/json"
 }
 #Blank var for use by terraform.tfvars
-variable "token_secret" {
+variable "token_id" {
 }
 #Blank var for use by terraform.tfvars
-variable "token_id" {
+variable "token_secret" {
 }
