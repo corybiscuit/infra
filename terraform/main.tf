@@ -37,6 +37,7 @@ resource "proxmox_vm_qemu" "toolbox" {
     memory = 8192
     scsihw = "virtio-scsi-pci"
     bootdisk = "scsi0"
+    tags = "terraform"
 
     cpu {
         cores = 8

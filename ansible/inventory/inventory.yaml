@@ -1,17 +1,20 @@
-proxmox:
-  hosts:
-    nimbus01:
-      ansible_host: 10.10.10.20
-    cirrus01:
-      ansible_host: 10.10.10.22
-
-media:
-  hosts:
-    plex:
-      ansible_host: 10.10.10.50
-    stash:
-      ansible_host: 10.10.10.51
-    media_stack:
-      ansible_host: 10.10.10.52
-  vars:
-    ansible_user: root
+all:
+  children:
+    proxmox:
+      hosts:
+        nimbus01:
+          ansible_host: 10.10.10.20
+        cirrus01:
+          ansible_host: 10.10.10.22
+      vars:
+        ansible_user: root
+    media:
+      hosts:
+        plex:
+          ansible_host: 10.10.10.50
+        stash:
+          ansible_host: 10.10.10.51
+        media_stack:
+          ansible_host: 10.10.10.52
+      vars:
+        ansible_user: root

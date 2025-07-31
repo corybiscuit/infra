@@ -1,5 +1,5 @@
-resource "proxmox_lxc" "media_stack" {
-    hostname = "media_stack"
+resource "proxmox_lxc" "mediastack" {
+    hostname = "mediastack"
     target_node = var.proxmox_host
     ostemplate = "local:vztmpl/debian-12-standard_12.7-1_amd64.tar.zst"
     password = "changeme123"
