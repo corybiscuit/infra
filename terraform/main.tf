@@ -19,9 +19,9 @@ provider "proxmox" {
     pm_tls_insecure = true
 }
 
-# Creates a proxmox_vm_qemu entity named test02
-resource "proxmox_vm_qemu" "testvm-02" {
-    name = "testvm-02"
+# Creates a proxmox_vm_qemu entity named toolbox
+resource "proxmox_vm_qemu" "toolbox" {
+    name = "toolbox"
     target_node = var.proxmox_host
 
     # References vars.tf to plug in the template name
@@ -33,13 +33,13 @@ resource "proxmox_vm_qemu" "testvm-02" {
     # VM Settings. `agent = 1` enables qemu-guest-agent
     agent = 1
     os_type = "cloud-init"
-    ipconfig0 = "ip=10.10.10.201/24,gw=10.10.10.1"
-    memory = 2048
+    ipconfig0 = "ip=10.10.10.49/24,gw=10.10.10.1"
+    memory = 8192
     scsihw = "virtio-scsi-pci"
     bootdisk = "scsi0"
 
     cpu {
-        cores = 2
+        cores = 8
         sockets = 1
         type = "host"
     }
@@ -55,7 +55,7 @@ resource "proxmox_vm_qemu" "testvm-02" {
         scsi {
             scsi0 {
                 disk {
-                    size = "32G"
+                    size = "48G"
                     storage = "local-lvm"
                     # Enables SSD emulation
                     emulatessd = true
